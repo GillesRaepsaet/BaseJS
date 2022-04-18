@@ -1,8 +1,19 @@
-let arr =  [91,95,76,92,93]
-let m =  Math.mix(...arr)
-console.log(m)
+const listArray = [52, 123, 4, 8, 12, 130, 8]
 
-let arr2 = [91,95,76,92,93]
-let m2 = Math.max(...arr)
+// Some elegant ES6 solutions : 
+const min = Math.min(...arr)
+const max = Math.max(...arr)
 
-console.log(m2)
+
+// The old-fashioned way :
+let minimum = listArray[0]
+let maximum = listArray[0]
+
+for(let element of listArray){
+  if(element < minimum){
+    minimum = element
+  }
+  if(element > maximum){
+    maximum = element
+  }
+}
