@@ -8,22 +8,21 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
-var listArray = [52, 123, 4, 8, 12, 130, 8]; // Some elegant ES6 solutions : 
+function pickN(inputArray, n) {
+  if (n >= inputArray.length) return inputArray;
 
-var min = Math.min.apply(Math, _toConsumableArray(arr));
-var max = Math.max.apply(Math, _toConsumableArray(arr)); // The old-fashioned way :
+  var inputCopy = _toConsumableArray(inputArray);
 
-var minimum = listArray[0];
-var maximum = listArray[0];
+  var selectedElements = [];
 
-for (var _i = 0, _listArray = listArray; _i < _listArray.length; _i++) {
-  var element = _listArray[_i];
-
-  if (element < minimum) {
-    minimum = element;
+  for (var i = 0; i < n; i++) {
+    var randomIndex = Math.floor(Math.random() * inputCopy);
+    selectedElements.push(inputCopy[randomIndex]);
+    inputCopy.splice(randomIndex, 1);
   }
 
-  if (element > maximum) {
-    maximum = element;
-  }
+  return selectedElements;
 }
+
+var learners = ['Emre', 'Gilles', 'Jamie', 'Jason', 'Jeremy', 'Martin', 'Rayane', 'Rayhan', 'Ricardo', 'Sebastien', 'Steffanie', 'Tanguy', 'Thibaud', 'Zakaria', 'Eric'];
+console.log(pickN(learners, 5));
